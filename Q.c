@@ -36,12 +36,31 @@ void display() {
     }
 }
 
+ivoid search(int key) {
+    if (front == -1 || front > rear) {
+        printf("Queue is empty\n");
+        return;
+    }
+
+    for (int i = front; i <= rear; i++) {
+        if (queue[i] == key) {
+            printf("%d found at position %d\n", key, i - front + 1);
+            return;
+        }
+    }
+
+    printf("%d not found in queue\n", key);
+}
+
 int main() {
     enqueue(10);
     enqueue(20);
     enqueue(30);
 
     display();
+
+    search(20);
+    search(40);
 
     dequeue();
     display();
